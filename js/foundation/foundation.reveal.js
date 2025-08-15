@@ -138,25 +138,19 @@
       var self = this,
           modal;
 
-      
-      console.log('jQuery version:', $.fn.jquery);
-      console.log('foundation.reveal open');
-      console.log('foundation.reveal target', target);
-      
       if (target) {
-        if (typeof target.selector !== 'undefined') {
+        // jQuery upgrade note: target.selector was deprecated and removed
+        // if (typeof target.selector !== 'undefined') {
           // Find the named node; only use the first one found, since the rest of the code assumes there's only one node
           modal = self.S('#' + target.data(self.data_attr('reveal-id'))).first();
-          console.log('foundation.reveal target.selector is undefined, selector:', target.data(self.data_attr('reveal-id')));
-        } else {
-          modal = self.S(this.scope);
-          console.log('foundation.reveal using this.scope', this.scope);
+        // } else {
+        //   modal = self.S(this.scope);
+        //   console.log('foundation.reveal using this.scope', this.scope);
 
-          ajax_settings = target;
-        }
+        //   ajax_settings = target;
+        // }
       } else {
         modal = self.S(this.scope)
-        console.log('foundation.reveal using this.scope, no target', this.scope);
       }
 
       var settings = modal.data(self.attr_name(true) + '-init');
