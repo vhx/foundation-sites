@@ -138,6 +138,11 @@
       var self = this,
           modal;
 
+      
+      console.log('jQuery version:', $.fn.jquery);
+      console.log('foundation.reveal open');
+      console.log('foundation.reveal modal', modal);
+
       if (target) {
         if (typeof target.selector !== 'undefined') {
           // Find the named node; only use the first one found, since the rest of the code assumes there's only one node
@@ -163,6 +168,8 @@
         var open_modal = self.S('[' + self.attr_name() + '].open');
 
         if (typeof modal.data('css-top') === 'undefined') {
+          console.log('in modal data css-top undefined');
+          console.log('foundation.reveal modal', modal);
           modal.data('css-top', parseInt(modal.css('top'), 10))
             .data('offset', this.cache_offset(modal));
         }
